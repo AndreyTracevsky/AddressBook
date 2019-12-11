@@ -41,6 +41,19 @@ class ContactHelper:
         wd.get("http://localhost/addressbook/group.php")
 
 
+    def delete_first_contact(self):
+        wd = self.app.wd
+        self.open_contact_list()
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//input[@type='button' and @value='Delete']").click()
+        wd.switch_to_alert().accept()
+        wd.find_elements_by_css_selector("div.msgbox")
+        self.return_to_home_page()
+
+    def open_contact_list(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+
     def open_contact_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
