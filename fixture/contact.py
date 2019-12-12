@@ -40,7 +40,6 @@ class ContactHelper:
         wd = self.app.wd
         wd.get("http://localhost/addressbook/group.php")
 
-
     def delete_first_contact(self):
         wd = self.app.wd
         self.open_contact_list()
