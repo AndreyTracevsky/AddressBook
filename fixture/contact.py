@@ -49,6 +49,20 @@ class ContactHelper:
         wd.find_elements_by_css_selector("div.msgbox")
         self.return_to_home_page()
 
+    '''def modify_first_contact(self, new_contact_data):
+        wd = self.app.wd
+        self.open_home_page()
+        # open modification form
+        wd.find_elements_by_xpath('//*[@title="Edit"]').click
+        # fill form
+
+        # submit modification
+        self.return_to_home_page()'''
+
+    def select_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+
     def open_contact_list(self):
         wd = self.app.wd
         wd.find_element_by_link_text("home").click()
