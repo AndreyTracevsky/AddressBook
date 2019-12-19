@@ -27,7 +27,6 @@ class ContactHelper:
         self.change_contact_form_value("work", contact.phone_work)
         self.change_contact_form_value("email", contact.email)
 
-
     def change_contact_form_value(self, field_firstname, text):
         wd = self.app.wd
         if text is not None:
