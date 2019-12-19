@@ -15,20 +15,20 @@ class ContactHelper:
 
     def fill_contact_form(self, contact):
         wd = self.app.wd
-        self.type("firstname", contact.firstname)
-        self.type("middlename", contact.middlename)
-        self.type("lastname", contact.lastname)
-        self.type("nickname", contact.nickname)
-        self.type("title", contact.title)
-        self.type("company", contact.company)
-        self.type("address", contact.address)
-        self.type("home", contact.phone_home)
-        self.type("mobile", contact.phone_mobile)
-        self.type("work", contact.phone_work)
-        self.type("email", contact.email)
+        self.change_contact_form_value("firstname", contact.firstname)
+        self.change_contact_form_value("middlename", contact.middlename)
+        self.change_contact_form_value("lastname", contact.lastname)
+        self.change_contact_form_value("nickname", contact.nickname)
+        self.change_contact_form_value("title", contact.title)
+        self.change_contact_form_value("company", contact.company)
+        self.change_contact_form_value("address", contact.address)
+        self.change_contact_form_value("home", contact.phone_home)
+        self.change_contact_form_value("mobile", contact.phone_mobile)
+        self.change_contact_form_value("work", contact.phone_work)
+        self.change_contact_form_value("email", contact.email)
 
 
-    def type(self, field_firstname, text):
+    def change_contact_form_value(self, field_firstname, text):
         wd = self.app.wd
         if text is not None:
             wd.find_element_by_name(field_firstname).click()
