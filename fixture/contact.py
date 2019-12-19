@@ -6,35 +6,34 @@ class ContactHelper:
     def create_contact(self, contact):
         wd = self.app.wd
         self.open_contact_page()
-        # fill contact form
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.firstname)
-        wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(contact.middlename)
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.lastname)
-        wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys(contact.nickname)
-        wd.find_element_by_name("title").clear()
-        wd.find_element_by_name("title").send_keys(contact.title)
-        wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(contact.company)
-        wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(contact.address)
-        wd.find_element_by_name("home").click()
-        wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.phone_home)
-        wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.phone_mobile)
-        wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys(contact.phone_work)
-        wd.find_element_by_name("email").click()
+        self.fill_contact_form(contact)
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email)
         # submit contact creation
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
         self.return_to_home_page()
+
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
+        self.type("firstname", contact.firstname)
+        self.type("middlename", contact.middlename)
+        self.type("lastname", contact.lastname)
+        self.type("nickname", contact.nickname)
+        self.type("title", contact.title)
+        self.type("company", contact.company)
+        self.type("address", contact.address)
+        self.type("home", contact.phone_home)
+        self.type("mobile", contact.phone_mobile)
+        self.type("work", contact.phone_work)
+        self.type("email", contact.email)
+
+
+    def type(self, field_firstname, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field_firstname).click()
+            wd.find_element_by_name(field_firstname).clear()
+            wd.find_element_by_name(field_firstname).send_keys(text)
 
     def return_to_home_page(self):
         wd = self.app.wd
@@ -49,15 +48,16 @@ class ContactHelper:
         wd.find_elements_by_css_selector("div.msgbox")
         self.return_to_home_page()
 
-    '''def modify_first_contact(self, new_contact_data):
+    def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
-        self.open_home_page()
+        self.open_contact_list()
         # open modification form
-        wd.find_elements_by_xpath('//*[@title="Edit"]').click
+        wd.find_element_by_xpath('//*[@title="Edit"]').click()
         # fill form
-
+        self.fill_contact_form(new_contact_data)
         # submit modification
-        self.return_to_home_page()'''
+        wd.find_element_by_name("update").click()
+        self.return_to_home_page()
 
     def select_first_contact(self):
         wd = self.app.wd

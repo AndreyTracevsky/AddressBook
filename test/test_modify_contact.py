@@ -1,21 +1,21 @@
 from model.contact import Contact
 
 
-'''def test_modify_contact_firstname(app):
+def test_modify_contact_firstname(app):
     app.session.login(username = "admin", password = "secret")
     app.contact.modify_first_contact(Contact(firstname = "Vasilii"))
     app.session.logout()
 
 
-def test_modify_contact_midlename(app):
+def test_modify_contact_middlename(app):
     app.session.login(username = "admin", password = "secret")
-    app.contact.modify_first_contact(Contact(midlename = "Vasilievich"))
+    app.contact.modify_first_contact(Contact(middlename = "Vasilievich"))
     app.session.logout()
     
     
 def test_modify_contact_lastname(app):
-    app.session.login(username = "admin", password = "secret")
-    app.contact.modify_first_contact(Contact(lastname = "Vasil'kov"))
+    app.session.login(username = "admin", password="secret")
+    app.contact.modify_first_contact(Contact(lastname="Vasilkov"))
     app.session.logout()
     
     
@@ -35,7 +35,8 @@ def test_modify_contact_company(app):
     app.session.login(username = "admin", password = "secret")
     app.contact.modify_first_contact(Contact(company = "Nike"))
     app.session.logout()
-    
+
+
 def test_modify_contact_address(app):
     app.session.login(username = "admin", password = "secret")
     app.contact.modify_first_contact(Contact(address = "M.Tanka 34/1"))
@@ -63,4 +64,4 @@ def test_modify_contact_phone_work(app):
 def test_modify_contact_email(app):
     app.session.login(username = "admin", password = "secret")
     app.contact.modify_first_contact(Contact(email = "tester@ya.ru"))
-    app.session.logout()'''
+    app.session.logout()
