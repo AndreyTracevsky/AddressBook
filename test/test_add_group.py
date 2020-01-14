@@ -3,7 +3,6 @@
 from model.group import Group
 
 
-
 def test_add_group(app):
     app.group.create(Group(name ="QA1", header ="Testers", footer ="ORPO"))
 
