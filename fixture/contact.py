@@ -73,7 +73,7 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
 
-    def get_contact_list(self):
+    def get_contact_list(self): # получение списка контактов
         wd = self.app.wd
         self.open_contact_list()
         contacts = []
