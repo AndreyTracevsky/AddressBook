@@ -85,3 +85,8 @@ class ContactHelper:
             #contacts.append(Contact(firstname = text, id = id))
             contacts.append(Contact(firstname=text, id=id))
         return contacts
+
+    def count(self):
+        wd = self.app.wd
+        self.open_contact_list()
+        return len(wd.find_elements_by_name("selected[]"))
